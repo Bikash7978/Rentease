@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RentEase Admin Login</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 40%, #8b0000 70%, #cc0000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+  position: relative;
+  overflow: hidden;
+}
+body::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, transparent 30%, rgba(255,255,255,0.03) 31%, transparent 32%),
+              repeating-conic-gradient(rgba(255,255,255,0.05) 0deg, transparent 1deg, transparent 30deg);
+  border-radius: 50%;
+}
+body::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, transparent 30%, rgba(255,255,255,0.03) 31%, transparent 32%),
+              repeating-conic-gradient(rgba(255,255,255,0.05) 0deg, transparent 1deg, transparent 30deg);
+  border-radius: 50%;
+}
+.login-box {
+  background: rgba(10, 10, 10, 0.92);
+  padding: 40px;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(204, 0, 0, 0.6), 0 10px 30px rgba(0,0,0,0.8);
+  border: 1px solid #cc0000;
+  position: relative;
+  z-index: 1;
+}
+.login-box h2 {
+  color: #cc0000;
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px rgba(204,0,0,0.8);
+}
+.login-box .subtitle {
+  color: #aaa;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+}
+.spider-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 2px solid #440000;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  background: #1a0000;
+  color: #fff;
+}
+input::placeholder { color: #888; }
+input:focus {
+  border-color: #cc0000;
+  box-shadow: 0 0 8px rgba(204,0,0,0.4);
+}
+button {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #cc0000, #8b0000);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+button:hover {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  box-shadow: 0 0 15px rgba(204,0,0,0.7);
+  transform: translateY(-2px);
+}
+.error {
+  color: #ff4444;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <span class="spider-icon">🕷️</span>
+  <h2>RentEase</h2>
+  <p class="subtitle">Admin Panel Login</p>
+
+  <input type="email" id="email" placeholder="Admin Email"/>
+  <input type="password" id="pass" placeholder="Password"/>
+
+  <button onclick="adminLogin()">Login to Admin Panel</button>
+
+  <p class="error" id="errMsg">❌ Wrong Email or Password!</p>
+</div>
+
+<script>
+function adminLogin() {
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("pass").value;
+  if(email === "bikashbarik3939@gmail.com" && pass === "bikash123") {
+    sessionStorage.setItem("adminLogged", "yes");
+    window.location.href = "admin.html";
+  } else {
+    document.getElementById("errMsg").style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
